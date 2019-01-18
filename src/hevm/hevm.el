@@ -3,7 +3,7 @@
 ;;
 
 (defvar hevm-executable-path
-  "/Users/mbrock/src/hevm/dist/build/hevm/hevm")
+  "hevm")
 
 (defvar hevm-root nil
   "Root path of the currently debugged dapp.")
