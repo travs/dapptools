@@ -13,12 +13,14 @@ export DAPP_SRC=${DAPP_SRC-src}
 export DAPP_LIB=${DAPP_LIB-lib}
 export DAPP_OUT=${DAPP_OUT-out}
 
-set -e
+DAPP_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/dapp"
 
 if ! [[ $DAPP_INIT ]]; then
   export DAPP_INIT=1
   # shellcheck source=/dev/null
   [[ -e ~/.dapprc ]] && . ~/.dapprc
+  # shellcheck source=/dev/null
+  [[ -e $DAPP_CONFIG_DIR/dapprc ]] && . $DAPP_CONFIG_DIR/dapprc
   # shellcheck source=/dev/null
   [[ $(pwd) != ~ && -e .dapprc ]] && . .dapprc
 fi

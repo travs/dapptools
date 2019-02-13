@@ -76,12 +76,14 @@ j,json               print output as JSON (if applicable)
 
 set -e
 
+SETH_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/seth"
+
 if ! [[ $SETH_INIT ]]; then
   export SETH_INIT=1
   # shellcheck source=/dev/null
   [[ -e ~/.sethrc ]] && . ~/.sethrc
   # shellcheck source=/dev/null
-  [[ -e $XDG_CONFIG_HOME/seth/sethrc ]] && . $XDG_CONFIG_HOME/seth/sethrc
+  [[ -e $SETH_CONFIG_DIR/sethrc ]] && . $SETH_CONFIG_DIR/sethrc
   # shellcheck source=/dev/null
   [[ $(pwd) != ~ && -e .sethrc ]] && . .sethrc
 fi
